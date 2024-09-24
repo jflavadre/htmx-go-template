@@ -1,0 +1,38 @@
+{{block "index" . }}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- htmx cdn -->
+    <script src="https://unpkg.com/htmx.org@2.0.2"
+        integrity="sha384-Y7hw+L/jvKeWIRRkqWYfPcvVxHzVzn5REgzbawhxAuQGwX1XWe70vji+VSeHOThJ"
+        crossorigin="anonymous"></script>
+    <!-- paper css cdn -->
+    <link rel="stylesheet" href="https://unpkg.com/papercss@1.9.2/dist/paper.min.css">
+    <!-- original css -->
+    <link rel="stylesheet" href="/css/index.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="background-danger padding-small">
+        <h4>{{.Saludo}}</h4>
+    </div>
+    <div class="background-secondary padding-small">
+        <h1>Let's count: {{template "count" . }}</h1>
+        <button hx-target="#count-number" hx-post="/count">Count</button>
+    </div>
+    <div class="background-warning padding-small">
+        <a href="/contacts">Contacts Page</a>
+    </div>
+</body>
+
+</html>
+{{end}}
+
+{{block "count" . }}
+<span id="count-number" style="color: blue;">{{.Count}}</span>
+{{end}}
