@@ -1,4 +1,4 @@
-module github.com/jflavare/htmx-go
+module github.com/jflavare/htmx-go-template
 
 go 1.22.5
 
